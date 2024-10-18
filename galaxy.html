@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Galaxy</title>
+
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .w3 {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.console = window.console || function (t) { };
+        </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi))
+         { window.parent.postMessage("resize", "*"); 
+            
+         }
+    </script>
+    </head>
+
+    <body translate="no">
+        <div><canvas class="w3" style="width: 1575px; height: 420px;"></canvas>
+        </div>
+        <script id="rendered-js" type="module">
+            import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.137.4/build/three.module.js";
+            import { OrbitControls } from "https://unpkg.com/three@0.112/examples/jsm/controls/OrbitControls.js";
+            const canvas = document.querySelector("canvas.w3"); const scene = new THREE.Scene(); const ps = {}; ps.count = 100000; ps.size = 0.1;
+            ps.radius = 14; ps.branches = 7; ps.spin = 1; ps.rnd = 1; ps.rpower = 3; ps.innerColor = "#ff6030"; ps.outerColor = "#070041";
+            let geometry = null; let material = null; let points = null; const galaxy = () => {
+                if (points !== null) { geometry.dispose(); material.dispose(); }
+                geometry = new THREE.BufferGeometry(); const positions = new Float32Array(ps.count * 3);
+                const colors = new Float32Array(ps.count * 3); const insideColor = new THREE.Color(ps.innerColor);
+                const outsideColor = new THREE.Color(ps.outerColor); insideColor.lerp(outsideColor, 0.05);
+                for (let i = 0; i < ps.count; i++) {
+                    const i3 = i * 3; const radius = Math.random() * ps.radius; const spinAngle = radius * ps.spin;
+                    const be = i % ps.branches / ps.branches * Math.PI * 2; const ry = Math.pow(Math.random(), ps.rpower) * ps.rnd;
+                    const rx = Math.pow(Math.random(), ps.rpower) * ps.rnd; const rz = Math.pow(Math.random(), ps.rpower) * ps.rnd;
+                    positions[i3] = Math.cos(be + spinAngle) * radius + rx; positions[i3 + 1] = ry / radius; positions[i3 + 2] = Math.sin(be + spinAngle) * radius + rz;
+                    const color = insideColor.clone(); color.lerp(outsideColor, radius / ps.radius); colors[i3] = color.r; colors[i3 + 1] = color.g; colors[i3 + 2] = color.b;
+                }
+                geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3)); geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+                material = new THREE.PointsMaterial({
+                    size: ps.size, transparent: true, depthWrite: false,
+                    blending: THREE.AdditiveBlending, vertexColors: true
+                }); points = new THREE.Points(geometry, material); scene.add(points);
+            };
+            galaxy(); const sizes = { width: window.innerWidth, height: window.innerHeight };
+            const camera = new THREE.PerspectiveCamera(75, 1.6, 0.1, 1000); camera.position.x = 0; camera.position.y = 15; camera.position.z = 5;
+            scene.add(camera); const renderer = new THREE.WebGLRenderer({ canvas: canvas });
+            renderer.setSize(sizes.width, sizes.height); renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            window.addEventListener("resize", () => {
+                sizes.width = window.innerWidth; sizes.height = window.innerHeight;
+                camera.aspect = sizes.width / sizes.height; camera.updateProjectionMatrix();
+                renderer.setSize(sizes.width, sizes.height); renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            });
+            var controls; controls = new OrbitControls(camera, renderer.domElement); controls.enableDamping = true;
+            const clock = new THREE.Clock(); const tick = () => {
+                const elapsedTime = clock.getElapsedTime(); points.rotation.y = elapsedTime * 0.2;
+
+                controls.update(); renderer.render(scene, camera); window.requestAnimationFrame(tick);
+            };
+            
+            tick();
+
+         </script>
+        
+        <!-- <div id="index1" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+            <iframe src="index1.html" width="100%" height="100%" frameborder="0"></iframe>
+        </div> -->
+        
+        <!-- partial -->
+
+    </body>
+
+</html>

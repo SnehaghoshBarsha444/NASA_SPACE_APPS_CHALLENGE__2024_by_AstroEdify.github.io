@@ -15,7 +15,7 @@ TEAM  MEMBERS :-
 2. Ishani Mitra (Team Member -1) : Raw Materials Supplier
 3. S Manish Nair (Team Member -2) : Full-Stack Developer 
 
-Project link :- https://snehaghoshbarsha444.github.io/NASA_SPACE_APPS_CHALLENGE__2024_by_AstroEdify.github.io/
+Project link :- [NASA_SPACE_APPS_CHALLENGE__2024_by_AstroEdify](https://nasa-space-apps-challenge-2024-by-astro-edify.vercel.app/)
 
 Project video link :-  https://youtu.be/9IRvJEmjtes
 

@@ -1,6 +1,6 @@
 ## NASA-SPACE-APPS-CHALLENGE (2024) 
 
-[![Vercel Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-blue.svg)](https://snehaghoshbarsha444.github.io/NASA_SPACE_APPS_CHALLENGE__2024_by_AstroEdify.github.io/)
+[![Vercel Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-blue.svg)](https://nasa-space-apps-challenge-2024-by-astro-edify.vercel.app/)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/SnehaghoshBarsha444/NASA_SPACE_APPS_CHALLENGE__2024_by_AstroEdify.github.io)
 
 Problem link :-

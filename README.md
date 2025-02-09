@@ -1,4 +1,7 @@
-##NASA-SPACE-APPS-CHALLENGE (2024) 
+## NASA-SPACE-APPS-CHALLENGE (2024) 
+
+[![Vercel Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-blue.svg)](https://snehaghoshbarsha444.github.io/NASA_SPACE_APPS_CHALLENGE__2024_by_AstroEdify.github.io/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/SnehaghoshBarsha444/NASA_SPACE_APPS_CHALLENGE__2024_by_AstroEdify.github.io)
 
 Problem link :-
 https://www.spaceappschallenge.org/nasa-space-apps-2024/challenges/chronicles-of-exoplanet-exploration/
